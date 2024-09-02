@@ -1,0 +1,150 @@
+openapi: 3.0.0
+info:
+  title: Loyalty Program API
+  description: API documentation for the loyalty program service
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000/api/v1
+paths:
+  /register:
+    post:
+      summary: Register a new user
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: John Doe
+                email:
+                  type: string
+                  example: john.doe@example.com
+      responses:
+        '201':
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  balance:
+                    type: number
+        '400':
+          description: Invalid input or email already registered
+  /balance/{userId}:
+    get:
+      summary: Get the balance of a user
+      tags:
+        - Users
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: The ID of the user
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User balance retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  balance:
+                    type: number
+        '404':
+          description: User not found
+  /transaction:
+    post:
+      summary: Record a new transaction
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  example: 123e4567-e89b-12d3-a456-426614174000
+                type:
+                  type: string
+                  enum: [earn, spend]
+                  example: earn
+                amount:
+                  type: number
+                  example: 100
+      responses:
+        '200':
+          description: Transaction recorded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  amount:
+                    type: number
+                  date:
+                    type: string
+                    format: date-time
+        '400':
+          description: Invalid input or insufficient balance
+        '404':
+          description: User not found
+  /transactions/{userId}:
+    get:
+      summary: Get all transactions for a user
+      tags:
+        - Users
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: The ID of the user
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Transactions retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    type:
+                      type: string
+                    amount:
+                      type: number
+                    date:
+                      type: string
+                      format: date-time
+        '404':
+          description: User not found
