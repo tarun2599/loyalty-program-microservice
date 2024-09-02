@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# loyalty-program-microservice
-=======
 # Loyalty Program Microservice
 
 ## Overview
@@ -13,9 +10,10 @@ This microservice is designed to handle user registrations, transactions, and ba
 - **Balance Management**: Check and update user balance.
 - **Transaction Recording**: Record earning and spending transactions.
 - **Transaction History**: Retrieve transaction history for a user.
-- **Rate Limiting**: Protect against abuse with basic rate limiting.
+- **Rate Limiting**: Protect against abuse with a rate limit of 50 requests per minute per IP.
 - **Caching**: Improve performance with an in-memory cache.
 - **Logging**: Track important events and errors.
+- **Testing**: Unit and integration tests are included.
 - **Docker Support**: Containerize the application for easy deployment.
 
 ## Getting Started
@@ -79,28 +77,9 @@ This microservice is designed to handle user registrations, transactions, and ba
 
     The application will be available at `http://localhost:3000`.
 
-### API Documentation
+### Testing
 
-The API documentation is available at `/api-docs` once the server is running. You can explore and test the API endpoints through the Swagger UI.
-
-## Directory Structure
-
-- `src/`: Contains the source code.
-  - `controllers/`: Controller logic for handling requests.
-  - `middleware/`: Middleware functions for rate limiting and logging.
-  - `models/`: Database interaction and data models.
-  - `routes/`: API route definitions.
-  - `utils/`: Utility functions like caching and logging.
-- `tests/`: Test files for unit and integration testing.
-- `Dockerfile`: Docker configuration for containerizing the application.
-- `swagger.yaml`: Swagger configuration for API documentation.
-- `package.json`: Node.js project dependencies and scripts.
-- `tsconfig.json`: TypeScript configuration.
-
-## Dockerfile
-
-The Dockerfile builds an image with Node.js and your application code. To build the Docker image:
+To run the included unit and integration tests:
 
 ```bash
-docker build -t hello2599/loyalty-program-microservice:latest .
->>>>>>> master
+npm test
