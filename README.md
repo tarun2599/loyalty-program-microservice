@@ -55,15 +55,22 @@ This microservice is designed to handle user registrations, transactions, and ba
     npm install
     ```
 
-3. **Compile TypeScript to JavaScript:**
+3. **Development Environment:**
+
+    For development purposes, you can use `npm run dev` to run the application with hot-reloading:
+
+    ```bash
+    npm run dev
+    ```
+
+    The application will be available at `http://localhost:3000`.
+
+4. **Production Environment:**
+
+    For production, compile TypeScript to JavaScript and start the application:
 
     ```bash
     npm run build
-    ```
-
-4. **Start the Application:**
-
-    ```bash
     npm start
     ```
 
