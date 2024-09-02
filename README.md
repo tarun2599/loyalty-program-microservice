@@ -13,7 +13,7 @@ This microservice is designed to handle user registrations, transactions, and ba
 - **Rate Limiting**: Protect against abuse with a rate limit of 50 requests per minute per IP.
 - **Caching**: Improve performance with an in-memory cache.
 - **Logging**: Track important events and errors.
-- **Testing**: Unit and integration tests are included.
+- **API Documentation**: Explore and test the API endpoints through Swagger UI at `/api-docs`.
 - **Docker Support**: Containerize the application for easy deployment.
 
 ## Getting Started
@@ -71,14 +71,23 @@ This microservice is designed to handle user registrations, transactions, and ba
     For production, compile TypeScript to JavaScript and start the application:
 
     ```bash
+    npm run build
     npm start
     ```
 
     The application will be available at `http://localhost:3000`.
 
+### API Documentation
+
+The API documentation is available at `/api-docs` once the server is running. You can explore and test the API endpoints through the Swagger UI.
+
+To access the API documentation:
+
+- Visit `http://localhost:3000/api-docs` after starting the server.
+
 ### Testing
 
-To run the included unit and integration tests:
+The microservice includes unit and integration tests. To run the tests, use the following command:
 
 ```bash
 npm test
