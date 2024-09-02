@@ -18,17 +18,7 @@ const axios = require('axios');
 app.use('/api/v1', userRoutes);
 
 app.get('/', async(req, res) => {
-    const apiurl = "https://portal.itscredible.com/api/v1/edulocker/user/tarun@yopmail.com";
-    try{
-        const response = await axios.get(apiurl);
-        res.status(200).json({
-            message: 'Data fetched successfully',
-            data: response.data,
-        });
-    } catch(err){
-        res.status(400);
-    }
-    // res.send('Welcome to the Loyalty Program API!');
+    res.send('Welcome to the Loyalty Program API!');
 });
 
 export default app;
