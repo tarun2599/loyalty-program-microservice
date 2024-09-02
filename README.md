@@ -71,7 +71,6 @@ This microservice is designed to handle user registrations, transactions, and ba
     For production, compile TypeScript to JavaScript and start the application:
 
     ```bash
-    npm run build
     npm start
     ```
 
